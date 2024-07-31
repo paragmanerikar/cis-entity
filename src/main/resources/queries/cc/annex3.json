@@ -1,0 +1,19 @@
+{
+  "queries": [
+    {
+      "query": "select * from person p where p.id=:personId",
+      "resultType": "Object",
+      "returnKey": "person",
+      "subQuery": {
+        "query": "select * from address a where a.personId=:personId",
+        "resultType": "List",
+        "returnKey": "addresses"
+      }
+    },
+    {
+      "query": "select * from address a where a.personId=:personId",
+      "resultType": "List",
+      "returnKey": "addresses"
+    }
+  ]
+}
